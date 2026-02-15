@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
+  basePath: "/photo-archive",
 };
 
 export default nextConfig;
