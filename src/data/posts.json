@@ -1,0 +1,49 @@
+[
+  {
+    "id": "Kommetjie",
+    "type": "carousel",
+    "images": [
+      {
+        "thumb": "/photos/Kommetjie_0_thumb.jpg",
+        "full": "/photos/Kommetjie_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Kommetjie_1_thumb.jpg",
+        "full": "/photos/Kommetjie_1_full.jpg"
+      }
+    ],
+    "caption": "Post from Kommetjie",
+    "likes": 0,
+    "timestamp": "2026-02-15T07:41:22.000Z"
+  },
+  {
+    "id": "volleyball1",
+    "type": "single",
+    "images": [
+      {
+        "thumb": "/photos/volleyball1_0_thumb.jpg",
+        "full": "/photos/volleyball1_0_full.jpg"
+      }
+    ],
+    "caption": "Post from volleyball1",
+    "likes": 0,
+    "timestamp": "2019-01-01T02:25:00.000Z"
+  },
+  {
+    "id": "test1",
+    "type": "carousel",
+    "images": [
+      {
+        "thumb": "/photos/test1_0_thumb.jpg",
+        "full": "/photos/test1_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/test1_1_thumb.jpg",
+        "full": "/photos/test1_1_full.jpg"
+      }
+    ],
+    "caption": "Post from test1",
+    "likes": 0,
+    "timestamp": "2019-01-01T02:08:48.000Z"
+  }
+]
