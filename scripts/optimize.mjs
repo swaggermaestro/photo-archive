@@ -93,7 +93,7 @@ async function processImages() {
         type: files.length > 1 ? 'carousel' : 'single',
         category: category,
         images: processedImages,
-        caption: `Post from ${postId}`,
+        caption: `${postId}`,
         likes: 0,
         timestamp: postTimestamp 
       });
