@@ -1,7 +1,40 @@
 [
   {
+    "id": "Sam",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Sam_0_thumb.jpg",
+        "full": "/photos/Sam_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Sam_1_thumb.jpg",
+        "full": "/photos/Sam_1_full.jpg"
+      }
+    ],
+    "caption": "Post from Sam",
+    "likes": 0,
+    "timestamp": "2026-02-15T02:26:04.000Z"
+  },
+  {
+    "id": "Adam",
+    "type": "single",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Adam_0_thumb.jpg",
+        "full": "/photos/Adam_0_full.jpg"
+      }
+    ],
+    "caption": "Post from Adam",
+    "likes": 0,
+    "timestamp": "2026-02-14T19:26:21.000Z"
+  },
+  {
     "id": "Kommetjie",
     "type": "carousel",
+    "category": "adventures",
     "images": [
       {
         "thumb": "/photos/Kommetjie_0_thumb.jpg",
@@ -10,40 +43,158 @@
       {
         "thumb": "/photos/Kommetjie_1_thumb.jpg",
         "full": "/photos/Kommetjie_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Kommetjie_2_thumb.jpg",
+        "full": "/photos/Kommetjie_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Kommetjie_3_thumb.jpg",
+        "full": "/photos/Kommetjie_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Kommetjie_4_thumb.jpg",
+        "full": "/photos/Kommetjie_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Kommetjie_5_thumb.jpg",
+        "full": "/photos/Kommetjie_5_full.jpg"
+      },
+      {
+        "thumb": "/photos/Kommetjie_6_thumb.jpg",
+        "full": "/photos/Kommetjie_6_full.jpg"
       }
     ],
     "caption": "Post from Kommetjie",
     "likes": 0,
-    "timestamp": "2026-02-15T07:41:22.000Z"
+    "timestamp": "2026-02-13T13:44:57.000Z"
   },
   {
-    "id": "volleyball1",
+    "id": "Suné",
     "type": "single",
+    "category": "portraits",
     "images": [
       {
-        "thumb": "/photos/volleyball1_0_thumb.jpg",
-        "full": "/photos/volleyball1_0_full.jpg"
+        "thumb": "/photos/Suné_0_thumb.jpg",
+        "full": "/photos/Suné_0_full.jpg"
       }
     ],
-    "caption": "Post from volleyball1",
+    "caption": "Post from Suné",
     "likes": 0,
-    "timestamp": "2019-01-01T02:25:00.000Z"
+    "timestamp": "2026-01-13T19:33:04.000Z"
   },
   {
-    "id": "test1",
-    "type": "carousel",
+    "id": "Rebecca",
+    "type": "single",
+    "category": "portraits",
     "images": [
       {
-        "thumb": "/photos/test1_0_thumb.jpg",
-        "full": "/photos/test1_0_full.jpg"
+        "thumb": "/photos/Rebecca_0_thumb.jpg",
+        "full": "/photos/Rebecca_0_full.jpg"
+      }
+    ],
+    "caption": "Post from Rebecca",
+    "likes": 0,
+    "timestamp": "2026-01-03T19:33:24.000Z"
+  },
+  {
+    "id": "Cat",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Cat_0_thumb.jpg",
+        "full": "/photos/Cat_0_full.jpg"
       },
       {
-        "thumb": "/photos/test1_1_thumb.jpg",
-        "full": "/photos/test1_1_full.jpg"
+        "thumb": "/photos/Cat_1_thumb.jpg",
+        "full": "/photos/Cat_1_full.jpg"
       }
     ],
-    "caption": "Post from test1",
+    "caption": "Post from Cat",
     "likes": 0,
-    "timestamp": "2019-01-01T02:08:48.000Z"
+    "timestamp": "2026-01-03T19:30:51.000Z"
+  },
+  {
+    "id": "Taylor",
+    "type": "single",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Taylor_0_thumb.jpg",
+        "full": "/photos/Taylor_0_full.jpg"
+      }
+    ],
+    "caption": "Post from Taylor",
+    "likes": 0,
+    "timestamp": "2026-01-02T19:43:21.000Z"
+  },
+  {
+    "id": "Daniel",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Daniel_0_thumb.jpg",
+        "full": "/photos/Daniel_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Daniel_1_thumb.jpg",
+        "full": "/photos/Daniel_1_full.jpg"
+      }
+    ],
+    "caption": "Post from Daniel",
+    "likes": 0,
+    "timestamp": "2026-01-02T19:22:42.000Z"
+  },
+  {
+    "id": "Mike",
+    "type": "single",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Mike_0_thumb.jpg",
+        "full": "/photos/Mike_0_full.jpg"
+      }
+    ],
+    "caption": "Post from Mike",
+    "likes": 0,
+    "timestamp": "2026-01-01T14:10:52.000Z"
+  },
+  {
+    "id": "Reece",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Reece_0_thumb.jpg",
+        "full": "/photos/Reece_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Reece_1_thumb.jpg",
+        "full": "/photos/Reece_1_full.jpg"
+      }
+    ],
+    "caption": "Post from Reece",
+    "likes": 0,
+    "timestamp": "2025-12-30T22:55:24.000Z"
+  },
+  {
+    "id": "Jesse",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Jesse_0_thumb.jpg",
+        "full": "/photos/Jesse_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Jesse_1_thumb.jpg",
+        "full": "/photos/Jesse_1_full.jpg"
+      }
+    ],
+    "caption": "Post from Jesse",
+    "likes": 0,
+    "timestamp": "2025-12-22T17:49:45.000Z"
   }
 ]

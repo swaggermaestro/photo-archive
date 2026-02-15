@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function ProfileHeader({ postCount }: { postCount: number }) {
   return (
-    <header className="flex flex-col md:flex-row items-center md:items-start gap-8 px-6 py-12 md:px-0 max-w-4xl mx-auto border-b border-zinc-800/50">
+    <header className="flex flex-col md:flex-row items-center md:items-start gap-4 px-6 py-12 md:px-0 max-w-4xl mx-auto border-b border-zinc-800/50">
       
       {/* Avatar Section */}
       <div className="flex-shrink-0">
@@ -26,7 +26,7 @@ export function ProfileHeader({ postCount }: { postCount: number }) {
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
           {/* SERIF FONT HERE - Matches reference styling */}
           <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-white">
-            Simeon Boshoff
+            Simeon Boshoff 🇿🇦
           </h1>
           
           {/* <div className="flex gap-3">
@@ -56,14 +56,9 @@ export function ProfileHeader({ postCount }: { postCount: number }) {
         </div>
 
         {/* Bio Section */}
-        <div className="text-sm md:text-base space-y-2 max-w-lg">
-          <div className="font-medium text-zinc-100">Photography Portfolio</div>
-          <div className="whitespace-pre-wrap text-zinc-400 leading-relaxed font-light">
-            Software Engineer 🇿🇦
-            <br />
-            Fujifilm X-T3 - 35mm F/2
-          </div>
-        </div>
+        {/* <div className="text-sm md:text-base space-y-2 max-w-lg">
+          <div className="font-bold text-zinc-100">Photography Portfolio and Memories</div>
+        </div> */}
       </div>
     </header>
   );
