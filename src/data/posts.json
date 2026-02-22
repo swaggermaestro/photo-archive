@@ -184,6 +184,20 @@
     "timestamp": "2026-02-13T13:44:57.000Z"
   },
   {
+    "id": "Muizenberg",
+    "type": "single",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/Muizenberg_0_thumb.jpg",
+        "full": "/photos/Muizenberg_0_full.jpg"
+      }
+    ],
+    "caption": "Muizenberg",
+    "likes": 0,
+    "timestamp": "2026-01-25T14:47:44.000Z"
+  },
+  {
     "id": "Sune",
     "type": "single",
     "category": "portraits",
@@ -262,6 +276,24 @@
     "timestamp": "2026-01-02T19:22:42.000Z"
   },
   {
+    "id": "Rane",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/Rane_0_thumb.jpg",
+        "full": "/photos/Rane_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Rane_1_thumb.jpg",
+        "full": "/photos/Rane_1_full.jpg"
+      }
+    ],
+    "caption": "Rane",
+    "likes": 0,
+    "timestamp": "2026-01-02T11:04:31.000Z"
+  },
+  {
     "id": "Mike",
     "type": "single",
     "category": "portraits",
@@ -294,6 +326,24 @@
     "timestamp": "2025-12-30T22:55:24.000Z"
   },
   {
+    "id": "WIlderness",
+    "type": "carousel",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/WIlderness_0_thumb.jpg",
+        "full": "/photos/WIlderness_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/WIlderness_1_thumb.jpg",
+        "full": "/photos/WIlderness_1_full.jpg"
+      }
+    ],
+    "caption": "WIlderness",
+    "likes": 0,
+    "timestamp": "2025-12-30T12:26:51.000Z"
+  },
+  {
     "id": "Jesse",
     "type": "carousel",
     "category": "portraits",
@@ -310,5 +360,19 @@
     "caption": "Jesse",
     "likes": 0,
     "timestamp": "2025-12-22T17:49:45.000Z"
+  },
+  {
+    "id": "Stellenbosch",
+    "type": "single",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/Stellenbosch_0_thumb.jpg",
+        "full": "/photos/Stellenbosch_0_full.jpg"
+      }
+    ],
+    "caption": "Stellenbosch",
+    "likes": 0,
+    "timestamp": "2025-12-21T19:01:35.000Z"
   }
 ]
