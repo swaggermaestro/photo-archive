@@ -7,8 +7,24 @@ import postsData from "@/data/posts.json";
 import { Post } from "@/types";
 import Image from "next/image";
 import clsx from "clsx";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const posts = postsData as Post[];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05
+    }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+};
 
 export default function Home() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
@@ -62,43 +78,61 @@ export default function Home() {
       </div>
 
       {/* --- GRID SECTION --- */}
-      <div className="max-w-4xl mx-auto">
-        {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-3 gap-1 md:gap-2">
-            {filteredPosts.map((post) => (
-              <div 
-                key={post.id} 
-                className="relative aspect-[2/3] group cursor-pointer overflow-hidden bg-zinc-900"
-                onClick={() => setSelectedPost(post)}
-              >
-                <Image
-                  src={post.images[0].thumb}
-                  alt="Post thumbnail"
-                  fill
-                  className="object-cover transition-opacity group-hover:opacity-90"
-                  sizes="(max-width: 768px) 33vw, 300px"
-                />
-                
-                {post.type === 'carousel' && (
-                  <div className="absolute top-3 right-3 text-white drop-shadow-md z-10">
-                    <Layers size={18} fill="currentColor" className="opacity-90" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        ) : (
-          /* Empty State */
-          <div className="py-20 text-center text-zinc-500">
-            <div className="flex justify-center mb-4 opacity-50"><Grid size={40} strokeWidth={1} /></div>
-            <p>No photos yet.</p>
-          </div>
-        )}
+      <div className="max-w-4xl mx-auto px-1 md:px-0">
+        <AnimatePresence mode="wait">
+          {filteredPosts.length > 0 ? (
+            <motion.div 
+              key={activeTab}
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              className="grid grid-cols-3 gap-1 md:gap-2"
+            >
+              {filteredPosts.map((post) => (
+                <motion.div 
+                  key={post.id} 
+                  variants={itemVariants}
+                  className="relative aspect-[2/3] group cursor-pointer overflow-hidden bg-zinc-900"
+                  onClick={() => setSelectedPost(post)}
+                  whileHover={{ scale: 0.98 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Image
+                    src={post.images[0].thumb}
+                    alt="Post thumbnail"
+                    fill
+                    className="object-cover transition-opacity group-hover:opacity-90"
+                    sizes="(max-width: 768px) 33vw, 300px"
+                  />
+                  
+                  {post.type === 'carousel' && (
+                    <div className="absolute top-3 right-3 text-white drop-shadow-md z-10">
+                      <Layers size={18} fill="currentColor" className="opacity-90" />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            /* Empty State */
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="py-20 text-center text-zinc-500"
+            >
+              <div className="flex justify-center mb-4 opacity-50"><Grid size={40} strokeWidth={1} /></div>
+              <p>No photos yet.</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {selectedPost && (
-        <PhotoModal post={selectedPost} onClose={() => setSelectedPost(null)} />
-      )}
+      <AnimatePresence>
+        {selectedPost && (
+          <PhotoModal post={selectedPost} onClose={() => setSelectedPost(null)} />
+        )}
+      </AnimatePresence>
     </main>
   );
 }

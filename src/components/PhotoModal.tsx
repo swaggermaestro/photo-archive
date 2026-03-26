@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { Post } from "@/types";
 import Image from "next/image";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 
 interface PhotoModalProps {
   post: Post;
@@ -23,17 +24,25 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
     return () => { document.body.style.overflow = "unset"; };
   }, []);
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const nextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (currentImageIndex < post.images.length - 1) {
       setCurrentImageIndex(prev => prev + 1);
     }
   };
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const prevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (currentImageIndex > 0) {
       setCurrentImageIndex(prev => prev - 1);
+    }
+  };
+
+  const handlePanEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (info.offset.x > 50) {
+      prevImage();
+    } else if (info.offset.x < -50) {
+      nextImage();
     }
   };
 
@@ -46,39 +55,79 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
   });
 
   return (
-    <div className="fixed inset-0 z-50 bg-black flex flex-col" onClick={onClose}>
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-black flex flex-col overflow-hidden" 
+      onClick={onClose}
+    >
+      {/* Dynamic Blurred Background */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentImageIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0 z-0 pointer-events-none"
+        >
+          <Image
+            src={post.images[currentImageIndex].full}
+            alt="Background blur"
+            fill
+            className="object-cover blur-[100px] scale-110"
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="absolute inset-0 bg-black/40 z-[5] pointer-events-none" />
       
       {/* Close Button */}
-      <button 
+      <motion.button 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
         onClick={onClose} 
-        className="absolute top-4 right-4 z-[60] text-white/70 hover:text-white p-2 bg-black/20 rounded-full backdrop-blur-md"
+        className="absolute top-4 right-4 z-[60] text-white/70 hover:text-white p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/10"
       >
         <X size={24} />
-      </button>
+      </motion.button>
 
       {/* Main Content Area - Flex Column */}
-      <div className="flex-1 flex flex-col w-full h-full max-w-7xl mx-auto">
+      <motion.div 
+        onPanEnd={handlePanEnd}
+        className="flex-1 flex flex-col w-full h-full max-w-7xl mx-auto z-10"
+      >
         
-        {/* IMAGE SECTION: Takes up all available space, but shrinks if needed */}
-        <div className="relative flex-1 min-h-0 w-full bg-black flex items-center justify-center">
+        {/* IMAGE SECTION */}
+        <div className="relative flex-1 min-h-0 w-full flex items-center justify-center">
             <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
                 {post.images.map((img, idx) => (
-                  <div 
+                  <motion.div 
                     key={idx}
-                    className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-                      idx === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                    initial={false}
+                    animate={{ 
+                      opacity: idx === currentImageIndex ? 1 : 0,
+                      scale: idx === currentImageIndex ? 1 : 0.95,
+                      x: (idx - currentImageIndex) * 20
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className={`absolute inset-0 flex items-center justify-center ${
+                      idx === currentImageIndex ? "z-10" : "z-0 pointer-events-none"
                     }`}
                   >
                     <Image 
                       src={img.full} 
                       alt={`Post content ${idx + 1}`} 
                       fill 
-                      className="object-contain" 
+                      className="object-contain drop-shadow-2xl" 
                       sizes="100vw"
                       priority={idx === 0}
                       onLoad={() => handleImageLoad(idx)}
+                      draggable={false}
                     />
-                  </div>
+                  </motion.div>
                 ))}
 
                 {/* Loading Spinner */}
@@ -89,17 +138,17 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
                 )}
             </div>
 
-            {/* Navigation Arrows (Overlay on Image) */}
+            {/* Navigation Arrows (Desktop) */}
             {post.images.length > 1 && (
                 <>
                 {currentImageIndex > 0 && (
-                    <button onClick={prevImage} className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 z-[60]">
-                    <ChevronLeft size={40} strokeWidth={1.5} />
+                    <button onClick={prevImage} className="hidden md:block absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 z-[60] transition-transform hover:scale-110">
+                    <ChevronLeft size={48} strokeWidth={1} />
                     </button>
                 )}
                 {currentImageIndex < post.images.length - 1 && (
-                    <button onClick={nextImage} className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 z-[60]">
-                    <ChevronRight size={40} strokeWidth={1.5} />
+                    <button onClick={nextImage} className="hidden md:block absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 z-[60] transition-transform hover:scale-110">
+                    <ChevronRight size={48} strokeWidth={1} />
                     </button>
                 )}
                 {/* Dots Indicator */}
@@ -107,7 +156,7 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
                     {post.images.map((_, idx) => (
                     <div 
                         key={idx} 
-                        className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === currentImageIndex ? 'bg-white' : 'bg-white/30'}`} 
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/30'}`} 
                     />
                     ))}
                 </div>
@@ -115,22 +164,24 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
             )}
         </div>
 
-        {/* DETAILS SECTION: Sits beneath the image */}
-        <div 
-            className="flex-shrink-0 w-full bg-black/90 p-6 text-center md:text-left z-50 border-t border-white/10"
+        {/* DETAILS SECTION */}
+        <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="flex-shrink-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 text-center md:text-left z-50"
             onClick={(e) => e.stopPropagation()}
         >
-          <div className="max-w-3xl mx-auto space-y-2">
-            <p className="text-zinc-400 text-xs uppercase tracking-widest font-medium">
+          <div className="max-w-3xl mx-auto space-y-3">
+            <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-semibold">
               {formattedDate}
             </p>
-            <p className="text-zinc-100 text-base leading-relaxed whitespace-pre-wrap">
+            <p className="text-white text-lg md:text-xl font-light leading-relaxed whitespace-pre-wrap">
               {post.caption}
             </p>
           </div>
-        </div>
+        </motion.div>
 
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
