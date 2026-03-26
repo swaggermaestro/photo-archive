@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { Post } from "@/types";
 import Image from "next/image";
 
@@ -11,6 +11,11 @@ interface PhotoModalProps {
 
 export function PhotoModal({ post, onClose }: PhotoModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => ({ ...prev, [index]: true }));
+  };
 
   // Lock body scroll
   useEffect(() => {
@@ -57,14 +62,31 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
         {/* IMAGE SECTION: Takes up all available space, but shrinks if needed */}
         <div className="relative flex-1 min-h-0 w-full bg-black flex items-center justify-center">
             <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
-                <Image 
-                  src={post.images[currentImageIndex].full} 
-                  alt="Post content" 
-                  fill 
-                  className="object-contain" 
-                  sizes="100vw"
-                  priority
-                />
+                {post.images.map((img, idx) => (
+                  <div 
+                    key={idx}
+                    className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                      idx === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                    }`}
+                  >
+                    <Image 
+                      src={img.full} 
+                      alt={`Post content ${idx + 1}`} 
+                      fill 
+                      className="object-contain" 
+                      sizes="100vw"
+                      priority={idx === 0}
+                      onLoad={() => handleImageLoad(idx)}
+                    />
+                  </div>
+                ))}
+
+                {/* Loading Spinner */}
+                {!loadedImages[currentImageIndex] && (
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <Loader2 className="w-10 h-10 text-white/40 animate-spin" />
+                  </div>
+                )}
             </div>
 
             {/* Navigation Arrows (Overlay on Image) */}
