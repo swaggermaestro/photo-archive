@@ -95,13 +95,13 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
       </motion.button>
 
       {/* Main Content Area - Flex Column */}
-      <motion.div 
-        onPanEnd={handlePanEnd}
-        className="flex-1 flex flex-col w-full h-full max-w-7xl mx-auto z-10"
-      >
+      <div className="flex-1 flex flex-col w-full h-full max-w-7xl mx-auto z-10">
         
         {/* IMAGE SECTION */}
-        <div className="relative flex-1 min-h-0 w-full flex items-center justify-center">
+        <motion.div 
+          onPanEnd={handlePanEnd}
+          className="relative flex-1 min-h-0 w-full flex items-center justify-center touch-none"
+        >
             <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
                 {post.images.map((img, idx) => (
                   <motion.div 
@@ -109,10 +109,8 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
                     initial={false}
                     animate={{ 
                       opacity: idx === currentImageIndex ? 1 : 0,
-                      scale: idx === currentImageIndex ? 1 : 0.95,
-                      x: (idx - currentImageIndex) * 20
                     }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                     className={`absolute inset-0 flex items-center justify-center ${
                       idx === currentImageIndex ? "z-10" : "z-0 pointer-events-none"
                     }`}
@@ -162,7 +160,7 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
                 </div>
                 </>
             )}
-        </div>
+        </motion.div>
 
         {/* DETAILS SECTION */}
         <motion.div 
@@ -181,7 +179,7 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
           </div>
         </motion.div>
 
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

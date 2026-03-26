@@ -22,8 +22,8 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
 };
 
 export default function Home() {
@@ -86,7 +86,6 @@ export default function Home() {
               variants={containerVariants}
               initial="hidden"
               animate="show"
-              exit={{ opacity: 0, transition: { duration: 0.2 } }}
               className="grid grid-cols-3 gap-1 md:gap-2"
             >
               {filteredPosts.map((post) => (
@@ -95,8 +94,6 @@ export default function Home() {
                   variants={itemVariants}
                   className="relative aspect-[2/3] group cursor-pointer overflow-hidden bg-zinc-900"
                   onClick={() => setSelectedPost(post)}
-                  whileHover={{ scale: 0.98 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   <Image
                     src={post.images[0].thumb}
