@@ -22,13 +22,13 @@ async function processImages() {
     if (!fs.existsSync(categoryPath)) continue;
 
     const folders = fs.readdirSync(categoryPath).filter(f => 
-      fs.statSync(path.join(categoryPath, f)).isDirectory()
+      !f.startsWith('.') && fs.statSync(path.join(categoryPath, f)).isDirectory()
     );
 
     for (const folder of folders) {
       const folderPath = path.join(categoryPath, folder);
       const files = fs.readdirSync(folderPath).filter(f => 
-        /\.(jpg|jpeg|png|webp)$/i.test(f)
+        !f.startsWith('.') && /\.(jpg|jpeg|png|webp)$/i.test(f)
       );
       
       if (files.length === 0) continue;
@@ -37,7 +37,10 @@ async function processImages() {
 
       const postId = folder; 
       const processedImages = [];
-      let postTimestamp = fs.statSync(path.join(folderPath, files[0])).birthtime.toISOString();
+      const stats = fs.statSync(path.join(folderPath, files[0]));
+      // Use mtime (Modified) instead of birthtime (Created) because Windows birthtime 
+      // often resets to the copy date, while mtime is usually preserved.
+      let postTimestamp = (stats.mtime || stats.birthtime).toISOString();
 
       console.log(`Processing: ${postId} [Converting to sRGB]`);
 
@@ -59,7 +62,10 @@ async function processImages() {
             const metadata = await pipeline.metadata();
             if (metadata.exif) {
               const parsed = exifReader(metadata.exif);
-              if (parsed.Photo?.DateTimeOriginal) postTimestamp = parsed.Photo.DateTimeOriginal.toISOString();
+              const date = parsed.Photo?.DateTimeOriginal;
+              if (date instanceof Date && !isNaN(date)) {
+                postTimestamp = date.toISOString();
+              }
             }
           } catch (err) { /* ignore */ }
         }
