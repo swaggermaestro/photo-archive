@@ -1,5 +1,45 @@
 [
   {
+    "id": "Promenade",
+    "type": "carousel",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/Promenade_0_thumb.jpg",
+        "full": "/photos/Promenade_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Promenade_1_thumb.jpg",
+        "full": "/photos/Promenade_1_full.jpg"
+      }
+    ],
+    "caption": "Promenade",
+    "likes": 0,
+    "timestamp": "2026-04-06T18:17:24.000Z"
+  },
+  {
+    "id": "RLC x New Balance",
+    "type": "carousel",
+    "category": "portraits",
+    "images": [
+      {
+        "thumb": "/photos/RLC x New Balance_0_thumb.jpg",
+        "full": "/photos/RLC x New Balance_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/RLC x New Balance_1_thumb.jpg",
+        "full": "/photos/RLC x New Balance_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/RLC x New Balance_2_thumb.jpg",
+        "full": "/photos/RLC x New Balance_2_full.jpg"
+      }
+    ],
+    "caption": "RLC x New Balance",
+    "likes": 0,
+    "timestamp": "2026-04-01T17:53:10.000Z"
+  },
+  {
     "id": "Cape Town",
     "type": "carousel",
     "category": "adventures",
@@ -246,6 +286,24 @@
     "timestamp": "2026-02-13T13:44:57.000Z"
   },
   {
+    "id": "Blouberg",
+    "type": "carousel",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/Blouberg_0_thumb.jpg",
+        "full": "/photos/Blouberg_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Blouberg_1_thumb.jpg",
+        "full": "/photos/Blouberg_1_full.jpg"
+      }
+    ],
+    "caption": "Blouberg",
+    "likes": 0,
+    "timestamp": "2026-02-11T19:22:10.000Z"
+  },
+  {
     "id": "Muizenberg",
     "type": "single",
     "category": "adventures",
@@ -304,6 +362,38 @@
     "caption": "Moon Sunset",
     "likes": 0,
     "timestamp": "2026-01-21T20:27:08.000Z"
+  },
+  {
+    "id": "Clifton",
+    "type": "single",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/Clifton_0_thumb.jpg",
+        "full": "/photos/Clifton_0_full.jpg"
+      }
+    ],
+    "caption": "Clifton",
+    "likes": 0,
+    "timestamp": "2026-01-15T20:21:31.000Z"
+  },
+  {
+    "id": "Rainy Sea",
+    "type": "carousel",
+    "category": "adventures",
+    "images": [
+      {
+        "thumb": "/photos/Rainy Sea_0_thumb.jpg",
+        "full": "/photos/Rainy Sea_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Rainy Sea_1_thumb.jpg",
+        "full": "/photos/Rainy Sea_1_full.jpg"
+      }
+    ],
+    "caption": "Rainy Sea",
+    "likes": 0,
+    "timestamp": "2026-01-14T19:25:24.000Z"
   },
   {
     "id": "Sune",
