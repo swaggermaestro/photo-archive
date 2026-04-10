@@ -24,6 +24,20 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
     return () => { document.body.style.overflow = "unset"; };
   }, []);
 
+  // Intercept Android back swipe / browser back button
+  useEffect(() => {
+    history.pushState({ modal: true }, "");
+    const handlePopState = () => { onClose(); };
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      // If the modal is closed programmatically (not via back), clean up the extra history entry
+      if (history.state?.modal) {
+        history.back();
+      }
+    };
+  }, [onClose]);
+
   const nextImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (currentImageIndex < post.images.length - 1) {
