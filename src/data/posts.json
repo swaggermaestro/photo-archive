@@ -1,22 +1,8 @@
 [
   {
-    "id": "Kyle Volleyball",
-    "type": "single",
-    "category": "portraits",
-    "images": [
-      {
-        "thumb": "/photos/Kyle Volleyball_0_thumb.jpg",
-        "full": "/photos/Kyle Volleyball_0_full.jpg"
-      }
-    ],
-    "caption": "Kyle Volleyball",
-    "likes": 0,
-    "timestamp": "2026-04-09T18:17:49.000Z"
-  },
-  {
     "id": "Sunset Silhouette",
     "type": "carousel",
-    "category": "adventures",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Sunset Silhouette_0_thumb.jpg",
@@ -29,6 +15,10 @@
       {
         "thumb": "/photos/Sunset Silhouette_2_thumb.jpg",
         "full": "/photos/Sunset Silhouette_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Sunset Silhouette_3_thumb.jpg",
+        "full": "/photos/Sunset Silhouette_3_full.jpg"
       }
     ],
     "caption": "Sunset Silhouette",
@@ -38,7 +28,7 @@
   {
     "id": "Promenade",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Promenade_0_thumb.jpg",
@@ -56,7 +46,7 @@
   {
     "id": "RLC x New Balance",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/RLC x New Balance_0_thumb.jpg",
@@ -78,7 +68,7 @@
   {
     "id": "Cape Town",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Cape Town_0_thumb.jpg",
@@ -96,7 +86,7 @@
   {
     "id": "Elephant's Eye",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Elephant's Eye_0_thumb.jpg",
@@ -118,7 +108,7 @@
   {
     "id": "Clifton Volleyball",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Clifton Volleyball_0_thumb.jpg",
@@ -140,7 +130,7 @@
   {
     "id": "Francois Kogel Baai",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Francois Kogel Baai_0_thumb.jpg",
@@ -158,7 +148,7 @@
   {
     "id": "Sune Lions Head",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Sune Lions Head_0_thumb.jpg",
@@ -180,7 +170,7 @@
   {
     "id": "Lions Head",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Lions Head_0_thumb.jpg",
@@ -198,7 +188,7 @@
   {
     "id": "Romy",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Romy_0_thumb.jpg",
@@ -224,7 +214,7 @@
   {
     "id": "Mountain Mondays 1",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Mountain Mondays 1_0_thumb.jpg",
@@ -254,7 +244,7 @@
   {
     "id": "Sam",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Sam_0_thumb.jpg",
@@ -272,7 +262,7 @@
   {
     "id": "Adam",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Adam_0_thumb.jpg",
@@ -286,7 +276,7 @@
   {
     "id": "Kommetjie",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Kommetjie_0_thumb.jpg",
@@ -324,7 +314,7 @@
   {
     "id": "Blouberg",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Blouberg_0_thumb.jpg",
@@ -342,7 +332,7 @@
   {
     "id": "Muizenberg",
     "type": "single",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Muizenberg_0_thumb.jpg",
@@ -354,23 +344,9 @@
     "timestamp": "2026-01-25T14:47:56.000Z"
   },
   {
-    "id": "Cobra",
-    "type": "single",
-    "category": "adventures",
-    "images": [
-      {
-        "thumb": "/photos/Cobra_0_thumb.jpg",
-        "full": "/photos/Cobra_0_full.jpg"
-      }
-    ],
-    "caption": "Cobra",
-    "likes": 0,
-    "timestamp": "2026-01-25T13:46:41.000Z"
-  },
-  {
     "id": "Sea Point",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Sea Point_0_thumb.jpg",
@@ -388,7 +364,7 @@
   {
     "id": "Moon Sunset",
     "type": "single",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Moon Sunset_0_thumb.jpg",
@@ -402,7 +378,7 @@
   {
     "id": "Clifton",
     "type": "single",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Clifton_0_thumb.jpg",
@@ -416,7 +392,7 @@
   {
     "id": "Rainy Sea",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Rainy Sea_0_thumb.jpg",
@@ -434,7 +410,7 @@
   {
     "id": "Sune",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Sune_0_thumb.jpg",
@@ -448,7 +424,7 @@
   {
     "id": "Rebecca",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Rebecca_0_thumb.jpg",
@@ -462,7 +438,7 @@
   {
     "id": "Cat",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Cat_0_thumb.jpg",
@@ -478,27 +454,27 @@
     "timestamp": "2026-01-03T19:30:51.000Z"
   },
   {
-    "id": "WIlderness",
+    "id": "Wilderness",
     "type": "carousel",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
-        "thumb": "/photos/WIlderness_0_thumb.jpg",
-        "full": "/photos/WIlderness_0_full.jpg"
+        "thumb": "/photos/Wilderness_0_thumb.jpg",
+        "full": "/photos/Wilderness_0_full.jpg"
       },
       {
-        "thumb": "/photos/WIlderness_1_thumb.jpg",
-        "full": "/photos/WIlderness_1_full.jpg"
+        "thumb": "/photos/Wilderness_1_thumb.jpg",
+        "full": "/photos/Wilderness_1_full.jpg"
       }
     ],
-    "caption": "WIlderness",
+    "caption": "Wilderness",
     "likes": 0,
     "timestamp": "2026-01-02T19:57:06.000Z"
   },
   {
     "id": "Taylor",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Taylor_0_thumb.jpg",
@@ -512,7 +488,7 @@
   {
     "id": "Daniel",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Daniel_0_thumb.jpg",
@@ -530,7 +506,7 @@
   {
     "id": "Rane 2",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Rane 2_0_thumb.jpg",
@@ -544,7 +520,7 @@
   {
     "id": "Rane",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Rane_0_thumb.jpg",
@@ -558,7 +534,7 @@
   {
     "id": "Mike",
     "type": "single",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Mike_0_thumb.jpg",
@@ -572,7 +548,7 @@
   {
     "id": "Reece",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Reece_0_thumb.jpg",
@@ -590,7 +566,7 @@
   {
     "id": "Jesse",
     "type": "carousel",
-    "category": "portraits",
+    "category": "people",
     "images": [
       {
         "thumb": "/photos/Jesse_0_thumb.jpg",
@@ -608,7 +584,7 @@
   {
     "id": "Stellenbosch",
     "type": "single",
-    "category": "adventures",
+    "category": "places",
     "images": [
       {
         "thumb": "/photos/Stellenbosch_0_thumb.jpg",

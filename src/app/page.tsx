@@ -28,7 +28,7 @@ const itemVariants: Variants = {
 
 export default function Home() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
-  const [activeTab, setActiveTab] = useState<'adventures' | 'portraits'>('adventures');
+  const [activeTab, setActiveTab] = useState<'places' | 'people'>('places');
 
   const filteredPosts = posts.filter(post => post.category === activeTab);
 
@@ -40,9 +40,9 @@ export default function Home() {
       <div className="max-w-4xl mx-auto mt-2">
         <div className="grid grid-cols-2 w-full">
           
-          {/* Adventures Tab */}
+          {/* Places Tab */}
           <button 
-            onClick={() => setActiveTab('adventures')}
+            onClick={() => setActiveTab('places')}
             className={clsx(
               // Common styles
               "flex items-center justify-center gap-2 py-4 transition-colors duration-300 w-full outline-none",
@@ -50,28 +50,28 @@ export default function Home() {
               "text-xs md:text-sm font-semibold tracking-widest uppercase",
               // Logic: Active gets White Border, Inactive gets Transparent (invisible) border. 
               // Both have border-b-2 to prevent layout jumping.
-              activeTab === 'adventures' 
+              activeTab === 'places' 
                 ? "border-b-2 border-white text-white" 
                 : "border-b-2 border-transparent text-zinc-500 hover:text-zinc-300"
             )}
           >
             <Mountain size={16} />
-            <span>Adventures</span>
+            <span>Places</span>
           </button>
 
-          {/* Portraits Tab */}
+          {/* People Tab */}
           <button 
-            onClick={() => setActiveTab('portraits')}
+            onClick={() => setActiveTab('people')}
             className={clsx(
               "flex items-center justify-center gap-2 py-4 transition-colors duration-300 w-full outline-none",
               "text-xs md:text-sm font-semibold tracking-widest uppercase",
-              activeTab === 'portraits' 
+              activeTab === 'people' 
                 ? "border-b-2 border-white text-white" 
                 : "border-b-2 border-transparent text-zinc-500 hover:text-zinc-300"
             )}
           >
             <User size={16} />
-            <span>Portraits</span>
+            <span>People</span>
           </button>
 
         </div>

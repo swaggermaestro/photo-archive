@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { Post } from "@/types";
 import Image from "next/image";
@@ -24,19 +24,22 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
     return () => { document.body.style.overflow = "unset"; };
   }, []);
 
-  // Intercept Android back swipe / browser back button
+  // Intercept Android back swipe / browser back button.
+  // onClose is stored in a ref so the effect only runs on mount/unmount.
+  // Note: we intentionally do NOT call history.back() on cleanup — React Strict Mode
+  // (enabled by default in Next.js) runs effects twice in dev, so calling history.back()
+  // in cleanup would fire a popstate that immediately closes the modal on open.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => { onCloseRef.current = onClose; }, [onClose]);
+
   useEffect(() => {
     history.pushState({ modal: true }, "");
-    const handlePopState = () => { onClose(); };
+    const handlePopState = () => { onCloseRef.current(); };
     window.addEventListener("popstate", handlePopState);
     return () => {
       window.removeEventListener("popstate", handlePopState);
-      // If the modal is closed programmatically (not via back), clean up the extra history entry
-      if (history.state?.modal) {
-        history.back();
-      }
     };
-  }, [onClose]);
+  }, []);
 
   const nextImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -108,20 +111,20 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
         <X size={24} />
       </motion.button>
 
-      {/* Main Content Area - Flex Column */}
-      <div className="flex-1 flex flex-col w-full h-full max-w-7xl mx-auto z-10">
-        
+      {/* Main Content Area - Image only, constrained width */}
+      <div className="flex-1 flex flex-col w-full h-full max-w-7xl mx-auto z-10 min-h-0">
+
         {/* IMAGE SECTION */}
-        <motion.div 
+        <motion.div
           onPanEnd={handlePanEnd}
           className="relative flex-1 min-h-0 w-full flex items-center justify-center touch-none"
         >
             <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
                 {post.images.map((img, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={false}
-                    animate={{ 
+                    animate={{
                       opacity: idx === currentImageIndex ? 1 : 0,
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -129,11 +132,11 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
                       idx === currentImageIndex ? "z-10" : "z-0 pointer-events-none"
                     }`}
                   >
-                    <Image 
-                      src={img.full} 
-                      alt={`Post content ${idx + 1}`} 
-                      fill 
-                      className="object-contain drop-shadow-2xl" 
+                    <Image
+                      src={img.full}
+                      alt={`Post content ${idx + 1}`}
+                      fill
+                      className="object-contain drop-shadow-2xl"
                       sizes="100vw"
                       priority={idx === 0}
                       onLoad={() => handleImageLoad(idx)}
@@ -166,9 +169,9 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
                 {/* Dots Indicator */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-[60]">
                     {post.images.map((_, idx) => (
-                    <div 
-                        key={idx} 
-                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/30'}`} 
+                    <div
+                        key={idx}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/30'}`}
                     />
                     ))}
                 </div>
@@ -176,24 +179,24 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
             )}
         </motion.div>
 
-        {/* DETAILS SECTION */}
-        <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="flex-shrink-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 text-center md:text-left z-50"
-            onClick={(e) => e.stopPropagation()}
-        >
-          <div className="max-w-3xl mx-auto space-y-3">
-            <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-semibold">
-              {formattedDate}
-            </p>
-            <p className="text-white text-lg md:text-xl font-light leading-relaxed whitespace-pre-wrap">
-              {post.caption}
-            </p>
-          </div>
-        </motion.div>
-
       </div>
+
+      {/* DETAILS SECTION - outside max-w-7xl so gradient spans full screen width */}
+      <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="flex-shrink-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 text-center md:text-left z-50"
+          onClick={(e) => e.stopPropagation()}
+      >
+        <div className="max-w-3xl mx-auto space-y-3">
+          <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-semibold">
+            {formattedDate}
+          </p>
+          <p className="text-white text-lg md:text-xl font-light leading-relaxed whitespace-pre-wrap">
+            {post.caption}
+          </p>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }

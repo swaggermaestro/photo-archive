@@ -12,7 +12,7 @@ if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 const dataDir = path.dirname(DATA_FILE);
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
-const CATEGORIES = ['adventures', 'portraits'];
+const CATEGORIES = ['places', 'people'];
 
 async function processImages() {
   const posts = [];
