@@ -56,10 +56,12 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
   };
 
   const handlePanEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (info.offset.x > 50) {
-      prevImage();
-    } else if (info.offset.x < -50) {
-      nextImage();
+    const isHorizontal = Math.abs(info.offset.x) > Math.abs(info.offset.y);
+    if (isHorizontal) {
+      if (info.offset.x > 50) prevImage();
+      else if (info.offset.x < -50) nextImage();
+    } else if (info.offset.y > 80 || info.velocity.y > 600) {
+      onClose();
     }
   };
 
@@ -72,11 +74,11 @@ export function PhotoModal({ post, onClose }: PhotoModalProps) {
   });
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black flex flex-col overflow-hidden" 
+      className="fixed inset-0 z-50 bg-black flex flex-col overflow-hidden touch-none"
       onClick={onClose}
     >
       {/* Dynamic Blurred Background */}
