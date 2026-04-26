@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Layers, Mountain, User, Grid } from "lucide-react";
 import { ProfileHeader } from "@/components/ProfileHeader";
 import { PhotoModal } from "@/components/PhotoModal";
@@ -8,6 +8,8 @@ import { Post } from "@/types";
 import Image from "next/image";
 import clsx from "clsx";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+
+const PAGE_SIZE = 12;
 
 const posts = postsData as Post[];
 
@@ -29,8 +31,33 @@ const itemVariants: Variants = {
 export default function Home() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [activeTab, setActiveTab] = useState<'places' | 'people'>('places');
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   const filteredPosts = posts.filter(post => post.category === activeTab);
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPosts.length;
+
+  // Reset visible count when tab changes
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [activeTab]);
+
+  // Load more posts when sentinel scrolls into view
+  const loadMore = useCallback(() => {
+    setVisibleCount(prev => Math.min(prev + PAGE_SIZE, filteredPosts.length));
+  }, [filteredPosts.length]);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) loadMore(); },
+      { rootMargin: "200px" }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [loadMore]);
 
   return (
     <main className="min-h-screen bg-black text-white pb-20 font-sans">
@@ -81,16 +108,16 @@ export default function Home() {
       <div className="max-w-4xl mx-auto px-1 md:px-0">
         <AnimatePresence mode="wait">
           {filteredPosts.length > 0 ? (
-            <motion.div 
+            <motion.div
               key={activeTab}
               variants={containerVariants}
               initial="hidden"
               animate="show"
               className="grid grid-cols-3 gap-1 md:gap-2"
             >
-              {filteredPosts.map((post) => (
-                <motion.div 
-                  key={post.id} 
+              {visiblePosts.map((post) => (
+                <motion.div
+                  key={post.id}
                   variants={itemVariants}
                   className="relative aspect-[2/3] group cursor-pointer overflow-hidden bg-zinc-900"
                   onClick={() => setSelectedPost(post)}
@@ -102,7 +129,7 @@ export default function Home() {
                     className="object-cover transition-opacity group-hover:opacity-90"
                     sizes="(max-width: 768px) 33vw, 300px"
                   />
-                  
+
                   {post.type === 'carousel' && (
                     <div className="absolute top-3 right-3 text-white drop-shadow-md z-10">
                       <Layers size={18} fill="currentColor" className="opacity-90" />
@@ -113,7 +140,7 @@ export default function Home() {
             </motion.div>
           ) : (
             /* Empty State */
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="py-20 text-center text-zinc-500"
@@ -123,6 +150,9 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Sentinel — triggers the next batch when it scrolls into view */}
+        {hasMore && <div ref={sentinelRef} className="h-1" />}
       </div>
 
       <AnimatePresence>
