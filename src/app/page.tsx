@@ -57,7 +57,7 @@ export default function Home() {
     );
     observer.observe(sentinel);
     return () => observer.disconnect();
-  }, [loadMore]);
+  }, [loadMore, hasMore, activeTab]);
 
   return (
     <main className="min-h-screen bg-black text-white pb-20 font-sans">
