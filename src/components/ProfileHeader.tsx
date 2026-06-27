@@ -1,4 +1,3 @@
-import { MapPin, Link as LinkIcon } from "lucide-react";
 import Image from "next/image";
 
 export function ProfileHeader({ postCount }: { postCount: number }) {
@@ -26,7 +25,7 @@ export function ProfileHeader({ postCount }: { postCount: number }) {
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
           {/* SERIF FONT HERE - Matches reference styling */}
           <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-white">
-            Simeon Boshoff 🇿🇦
+            Simeon Boshoff 🇿🇦 🇦🇪
           </h1>
           
           {/* <div className="flex gap-3">
@@ -49,10 +48,7 @@ export function ProfileHeader({ postCount }: { postCount: number }) {
             <span className="font-bold text-white">Fujifilm X-T3</span> 
             <span className="text-zinc-400">Camera</span>
           </div>
-          <div className="flex flex-col md:flex-row items-center md:gap-1.5">
-            <span className="font-bold text-white">35mm F/2</span> 
-            <span className="text-zinc-400">Lens</span>
-          </div>
+
         </div>
 
         {/* Bio Section */}

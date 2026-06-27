@@ -30,23 +30,24 @@ const itemVariants: Variants = {
 
 export default function Home() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
-  const [activeTab, setActiveTab] = useState<'places' | 'people'>('places');
+  const [activeTab, setActiveTab] = useState<'places' | 'people'>('people');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
   const filteredPosts = posts.filter(post => post.category === activeTab);
+  const totalFilteredCount = filteredPosts.length;
   const visiblePosts = filteredPosts.slice(0, visibleCount);
-  const hasMore = visibleCount < filteredPosts.length;
+  const hasMore = visibleCount < totalFilteredCount;
 
-  // Reset visible count when tab changes
-  useEffect(() => {
+  const handleTabChange = (tab: 'places' | 'people') => {
+    setActiveTab(tab);
     setVisibleCount(PAGE_SIZE);
-  }, [activeTab]);
+  };
 
   // Load more posts when sentinel scrolls into view
   const loadMore = useCallback(() => {
-    setVisibleCount(prev => Math.min(prev + PAGE_SIZE, filteredPosts.length));
-  }, [filteredPosts.length]);
+    setVisibleCount(prev => Math.min(prev + PAGE_SIZE, totalFilteredCount));
+  }, [totalFilteredCount]);
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
@@ -67,9 +68,24 @@ export default function Home() {
       <div className="max-w-4xl mx-auto mt-2">
         <div className="grid grid-cols-2 w-full">
           
+          {/* People Tab */}
+          <button 
+            onClick={() => handleTabChange('people')}
+            className={clsx(
+              "flex items-center justify-center gap-2 py-4 transition-colors duration-300 w-full outline-none",
+              "text-xs md:text-sm font-semibold tracking-widest uppercase",
+              activeTab === 'people' 
+                ? "border-b-2 border-white text-white" 
+                : "border-b-2 border-transparent text-zinc-500 hover:text-zinc-300"
+            )}
+          >
+            <User size={16} />
+            <span>People</span>
+          </button>
+
           {/* Places Tab */}
           <button 
-            onClick={() => setActiveTab('places')}
+            onClick={() => handleTabChange('places')}
             className={clsx(
               // Common styles
               "flex items-center justify-center gap-2 py-4 transition-colors duration-300 w-full outline-none",
@@ -84,21 +100,6 @@ export default function Home() {
           >
             <Mountain size={16} />
             <span>Places</span>
-          </button>
-
-          {/* People Tab */}
-          <button 
-            onClick={() => setActiveTab('people')}
-            className={clsx(
-              "flex items-center justify-center gap-2 py-4 transition-colors duration-300 w-full outline-none",
-              "text-xs md:text-sm font-semibold tracking-widest uppercase",
-              activeTab === 'people' 
-                ? "border-b-2 border-white text-white" 
-                : "border-b-2 border-transparent text-zinc-500 hover:text-zinc-300"
-            )}
-          >
-            <User size={16} />
-            <span>People</span>
           </button>
 
         </div>
