@@ -1,5 +1,207 @@
 [
   {
+    "id": "Gori",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Gori_0_thumb.jpg",
+        "full": "/photos/Gori_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_1_thumb.jpg",
+        "full": "/photos/Gori_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_2_thumb.jpg",
+        "full": "/photos/Gori_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_3_thumb.jpg",
+        "full": "/photos/Gori_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_4_thumb.jpg",
+        "full": "/photos/Gori_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_5_thumb.jpg",
+        "full": "/photos/Gori_5_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_6_thumb.jpg",
+        "full": "/photos/Gori_6_full.jpg"
+      },
+      {
+        "thumb": "/photos/Gori_7_thumb.jpg",
+        "full": "/photos/Gori_7_full.jpg"
+      }
+    ],
+    "caption": "Gori",
+    "likes": 0,
+    "timestamp": "2026-08-23T10:22:07.000Z"
+  },
+  {
+    "id": "Borjomi",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Borjomi_0_thumb.jpg",
+        "full": "/photos/Borjomi_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_1_thumb.jpg",
+        "full": "/photos/Borjomi_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_2_thumb.jpg",
+        "full": "/photos/Borjomi_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_3_thumb.jpg",
+        "full": "/photos/Borjomi_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_4_thumb.jpg",
+        "full": "/photos/Borjomi_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_5_thumb.jpg",
+        "full": "/photos/Borjomi_5_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_6_thumb.jpg",
+        "full": "/photos/Borjomi_6_full.jpg"
+      },
+      {
+        "thumb": "/photos/Borjomi_7_thumb.jpg",
+        "full": "/photos/Borjomi_7_full.jpg"
+      }
+    ],
+    "caption": "Borjomi",
+    "likes": 0,
+    "timestamp": "2026-08-22T15:58:15.000Z"
+  },
+  {
+    "id": "Truso Valley, Georgia",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Truso Valley, Georgia_0_thumb.jpg",
+        "full": "/photos/Truso Valley, Georgia_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Truso Valley, Georgia_1_thumb.jpg",
+        "full": "/photos/Truso Valley, Georgia_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Truso Valley, Georgia_2_thumb.jpg",
+        "full": "/photos/Truso Valley, Georgia_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Truso Valley, Georgia_3_thumb.jpg",
+        "full": "/photos/Truso Valley, Georgia_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Truso Valley, Georgia_4_thumb.jpg",
+        "full": "/photos/Truso Valley, Georgia_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Truso Valley, Georgia_5_thumb.jpg",
+        "full": "/photos/Truso Valley, Georgia_5_full.jpg"
+      }
+    ],
+    "caption": "Truso Valley, Georgia",
+    "likes": 0,
+    "timestamp": "2026-08-09T12:11:11.000Z"
+  },
+  {
+    "id": "Chronicles of Georgia",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Chronicles of Georgia_0_thumb.jpg",
+        "full": "/photos/Chronicles of Georgia_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Chronicles of Georgia_1_thumb.jpg",
+        "full": "/photos/Chronicles of Georgia_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Chronicles of Georgia_2_thumb.jpg",
+        "full": "/photos/Chronicles of Georgia_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Chronicles of Georgia_3_thumb.jpg",
+        "full": "/photos/Chronicles of Georgia_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Chronicles of Georgia_4_thumb.jpg",
+        "full": "/photos/Chronicles of Georgia_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Chronicles of Georgia_5_thumb.jpg",
+        "full": "/photos/Chronicles of Georgia_5_full.jpg"
+      }
+    ],
+    "caption": "Chronicles of Georgia",
+    "likes": 0,
+    "timestamp": "2026-08-08T16:22:25.000Z"
+  },
+  {
+    "id": "Tbilisi 1",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Tbilisi 1_0_thumb.jpg",
+        "full": "/photos/Tbilisi 1_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_1_thumb.jpg",
+        "full": "/photos/Tbilisi 1_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_2_thumb.jpg",
+        "full": "/photos/Tbilisi 1_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_3_thumb.jpg",
+        "full": "/photos/Tbilisi 1_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_4_thumb.jpg",
+        "full": "/photos/Tbilisi 1_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_5_thumb.jpg",
+        "full": "/photos/Tbilisi 1_5_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_6_thumb.jpg",
+        "full": "/photos/Tbilisi 1_6_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_7_thumb.jpg",
+        "full": "/photos/Tbilisi 1_7_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_8_thumb.jpg",
+        "full": "/photos/Tbilisi 1_8_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 1_9_thumb.jpg",
+        "full": "/photos/Tbilisi 1_9_full.jpg"
+      }
+    ],
+    "caption": "Tbilisi 1",
+    "likes": 0,
+    "timestamp": "2026-08-04T19:07:43.000Z"
+  },
+  {
     "id": "Dubai",
     "type": "carousel",
     "category": "places",
