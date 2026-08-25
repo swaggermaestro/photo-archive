@@ -1,5 +1,39 @@
 [
   {
+    "id": "Uplistsikhe უფლისციხე",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Uplistsikhe უფლისციხე_0_thumb.jpg",
+        "full": "/photos/Uplistsikhe უფლისციხე_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Uplistsikhe უფლისციხე_1_thumb.jpg",
+        "full": "/photos/Uplistsikhe უფლისციხე_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Uplistsikhe უფლისციხე_2_thumb.jpg",
+        "full": "/photos/Uplistsikhe უფლისციხე_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Uplistsikhe უფლისციხე_3_thumb.jpg",
+        "full": "/photos/Uplistsikhe უფლისციხე_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Uplistsikhe უფლისციხე_4_thumb.jpg",
+        "full": "/photos/Uplistsikhe უფლისციხე_4_full.jpg"
+      },
+      {
+        "thumb": "/photos/Uplistsikhe უფლისციხე_5_thumb.jpg",
+        "full": "/photos/Uplistsikhe უფლისციხე_5_full.jpg"
+      }
+    ],
+    "caption": "Uplistsikhe უფლისციხე",
+    "likes": 0,
+    "timestamp": "2026-08-23T16:37:59.000Z"
+  },
+  {
     "id": "Gori",
     "type": "carousel",
     "category": "places",
@@ -103,7 +137,7 @@
     ],
     "caption": "Mari",
     "likes": 0,
-    "timestamp": "2026-08-19T21:27:51.000Z"
+    "timestamp": "2026-08-19T20:47:00.000Z"
   },
   {
     "id": "Tbilisi 1",
