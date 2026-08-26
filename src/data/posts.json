@@ -1,5 +1,35 @@
 [
   {
+    "id": "Tbilisi 2",
+    "type": "carousel",
+    "category": "places",
+    "images": [
+      {
+        "thumb": "/photos/Tbilisi 2_0_thumb.jpg",
+        "full": "/photos/Tbilisi 2_0_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 2_1_thumb.jpg",
+        "full": "/photos/Tbilisi 2_1_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 2_2_thumb.jpg",
+        "full": "/photos/Tbilisi 2_2_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 2_3_thumb.jpg",
+        "full": "/photos/Tbilisi 2_3_full.jpg"
+      },
+      {
+        "thumb": "/photos/Tbilisi 2_4_thumb.jpg",
+        "full": "/photos/Tbilisi 2_4_full.jpg"
+      }
+    ],
+    "caption": "Tbilisi 2",
+    "likes": 0,
+    "timestamp": "2026-08-25T21:29:52.000Z"
+  },
+  {
     "id": "Uplistsikhe უფლისციხე",
     "type": "carousel",
     "category": "places",
